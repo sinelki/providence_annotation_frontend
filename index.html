@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Comparison Class Annotation</title>
+        <!-- Follow the instructions in the README to acquire a copy of browser_detect -->
+        <script src="browser_detect.js"></script>
+        <script src="client.js"></script>
+        <script src="setup.js" ></script>
+        <script src="custom_data.js" ></script>
+        <link rel="stylesheet" href="exp.css"/>
+    </head>
+
+    <body>
+        <noscript>This task requires JavaScript. Please enable JavaScript in your browser and reload the page. For more information on how to do that, please refer to
+            <a href='https://enable-javascript.com' target='_blank'>enable_javascript.com</a>
+        </noscript>
+
+        <main id='main'>
+            <div id='content'>
+                <div class="main-div" id='instructions'>
+                </div>
+                <div class="main-div" id='definitions' hidden=true>
+                </div>
+                <div class='button-div' id='def-navigation' hidden=true>
+                    <span class='navSpan'><button class='button' id='prevButtonDef' onclick=previousDefinition() disabled=true>&laquo; Previous</button></span>
+                    <span class='navSpan'><button class='button' id='nextButtonDef' onclick=nextDefinition() disabled=true>Next &raquo;</button></span>
+                </div>
+                <div class="main-div" id='example' hidden=true>
+                    <h1>Example</h1>
+                    You will see a dialogue exchange like shown below where one line is bolded. This bolded sentence is the one we
+                    want annotated as generic/non-generic and categorized. <br>
+                    You can read the entire exchange for context about the bolded sentence. If the context is not helpful, make your best guess.<br><br>
+                    The three letters within brackets (i.e. "[FAT]") refers to the speaker of the sentence.
+                    <div class='context'>
+                        <div>[FAT]: I don't know</div>
+                        <div>[FAT]: it looks like they're playing a game</div>
+                        <div><b>[CHI]: they're playing a game like xxx and play Robin_Hood</b></div>
+                        <div>[FAT]: the elephants are playing Robin_Hood</div>
+                        <div>[CHI]: yeah that's really funny</div>
+                        <div>[FAT]: it really is</div>
+                    </div>
+                    <br>
+                    <div class='question'>
+                        Is the following sentence generic or non-generic?<br>
+                        <b>they're playing a game like xxx and play Robin_Hood</b>
+                        <br><br>
+                        <label class='radio'>Generic
+                            <input type='radio' name='genericity' id='generic' disabled />
+                            <span class='checkmark'></span>
+                        </label>
+                        or 
+                        <label class='radio'>Non-generic
+                            <input type='radio' name='genericity' id='nongeneric' checked=true />
+                            <span class='checkmark'></span>
+                        </label>
+                    </div>
+                    <div class='category' id='category'>
+                        <select id='select'>
+                        <option value='' disabled>--Select Category--</option>
+                        <option value='Animal' selected>Animal</option>
+                        <option value='Food' disabled>Food</option>
+                        <option value='Idea' disabled>Idea</option>
+                        <option value='Object' disabled>Object</option>
+                        <option value='People' disabled>People</option>
+                        <option value='Other'disabled>Other</option>
+                        </select></div>
+
+                        <br><br>This sentence is <b>non-generic</b> and categorized as <b>Animal</b> 
+                        because they are discussing some specific elephants and what they are doing. <br>
+                        You'll notice that sometimes, instead of a word appearing in the sentence, there's just 'xxx'. 
+                        You can ignore this and make your best guess as to what
+                        might have been actually said in that spot.<br>
+                        <div class='button-div'>
+                        </div>
+                </div>
+                <div class="progress-div" id="practice-progress" hidden=true>
+                </div>
+                <div class="modal" id="modal-def">
+                    <div class="modal-content" id="modal-content-def">
+                        <span class="close" onclick=closeModal()>&times;</span>
+                    </div>
+                </div>
+                <div class="modal" id="modal-faq">
+                    <div class="modal-content" id="modal-content-faq">
+                        <span class="close" onclick=closeModal()>&times;</span>
+                        <div>
+                            <b>The video does not match the transcript - which should I trust?</b><br>
+                            Please follow the transcript and annotate based on the bolded phrase in the transcript and use the surrounding context to make your best guess.<br><br>
+                            <b>The video's audio matches the transcript, but the camera is not pointed at the situation.</b><br>
+                            Please make your best guess about the category based on the information available to you in the audio and transcript.<br><br>
+                            <b>I have no idea which category matches this utterance.</b><br>
+                            We know that some situations can be very difficult to annotate. Please make your best guess and do not worry too much about it.<br><br>
+                            <b>What do the letters in brackets (i.e. [MOT]) represent? Do I need to pay attention to them?</b><br>
+                            Those letters correspond to who is speaking - MOT is Mother, FAT is Father, CHI is child, etc. They are there to help you set the context of the conversation.<br><br>
+                            <b>The word "big" appears more than once, and it is used in different ways. Which instance of "big" should I pay attention to?</b><br>
+                            Please annotate according to the first instance of "big."<br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-div" id='practice' hidden=true>
+                </div>
+                <div class="progress-div" id="progress" hidden=true>
+                </div>
+                <div class="main-div" id='trials'>
+                </div>
+                <br />
+                <div class='button-div' id='navigation' hidden=true>
+                    <span class='navSpan'><button class='button' id='prevButton' onclick=previous() disabled=true>&laquo; Previous</button></span>
+                    <span class='navSpan'><button class='button' id='trialControl' onclick=complete() disabled=true>Finish</button></span>
+                    <span class='navSpan'><button class='button' id='nextButton' onclick=next()>Next &raquo;</button></span>
+                </div>
+                <div class="main-div" id='submission' hidden=true>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
